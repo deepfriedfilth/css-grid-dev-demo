@@ -1,0 +1,17 @@
+body {
+	font-family: $bodyFont;
+	font-size: 16px;
+	line-height: 1.2;
+}
+header {
+	font-family: $monoFont;
+}
+h1, h2 {
+	font-weight: 400;
+}
+article {
+	font-size: 1.2em;
+}
+p {
+	margin: 0 0 1em;
+}

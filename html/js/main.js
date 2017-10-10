@@ -7,6 +7,7 @@
 	
 
 	var player;
+	var ytLoaded = false;
 	function onYouTubeIframeAPIReady() {
 		player = new YT.Player('vidja', {
 			width: '360',
@@ -23,6 +24,7 @@
 	function onPlayerReady(event) {
 		// autoplay unecessary..
 		// event.target.playVideo();
+		ytLoaded = true;
 	}
 
 	var playedOnce = false;
@@ -95,8 +97,10 @@ jQuery(document).ready(function($) {
 
 	$('footer').mouseenter(function() {
 		console.log('play plz?');
-		if(!playedOnce) {
-			player.playVideo();
+		if(ytLoaded) {
+			if(!playedOnce) {
+				player.playVideo();
+			}
 		}
 	});
 

@@ -23,6 +23,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "jquery": "^3.2.1",
     "jquery-scrollify": "^1.0.17",
+    "material-design-icons": "^3.0.1",
     "typed.js": "^2.0.6",
     "waypoints": "^4.0.1"
   }

@@ -16,6 +16,11 @@ p {
 	margin: 0 0 1em;
 }
 a {
-	color: #333;
+	color: $linkColor;
 	
+	i {
+		position: relative;
+		top: 5px;
+		padding: 0 0.125em;
+	}
 }

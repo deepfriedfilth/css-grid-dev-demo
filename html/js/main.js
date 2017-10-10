@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
 
 		var typed = new Typed('#displayProp', {
 			strings: ['', 'display<span>:</span> <strong>grid</strong><span>;</span>'],
-			typeSpeed: 100,
+			typeSpeed: 50,
 			smartBackspace: true
 		});
 	}, 300);
@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
 
 		        	var typeThis = new Typed(eld, {
 		        		strings: ['', finalString],
-		        		typeSpeed: 200,
+		        		typeSpeed: 50,
 		        		onStart: function() {
 		        			$(eld).attr('data-typing',true);
 		        			console.log(eld+' has started being typed');
@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 	    	// }
         }
       }, {
-        offset: 200
+        offset: 150
       });
 	
 

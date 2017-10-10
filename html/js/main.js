@@ -1,6 +1,43 @@
-jQuery(document).ready(function($) {
+	var tag = document.createElement('script');
 
 	// aminated wordplay, yo
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+
+	var player;
+	function onYouTubeIframeAPIReady() {
+		player = new YT.Player('vidja', {
+			width: '360',
+			height: '220',
+			videoId: 'SjNM4eItNRA',
+			origin: window.location,
+			events: {
+				'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange
+			}
+		});
+	}
+
+	function onPlayerReady(event) {
+		// autoplay unecessary..
+		// event.target.playVideo();
+	}
+
+	var done = false;
+	function onPlayerStateChange(event) {
+		if (event.data == YT.PlayerState.PLAYING && !done) {
+			setTimeout(stopVideo, 16000);
+			done = true;
+			playedOnce = true;
+		}
+	}
+	function stopVideo() {
+		player.stopVideo();
+	}
+
+jQuery(document).ready(function($) {
 
 	setTimeout(function() {
 

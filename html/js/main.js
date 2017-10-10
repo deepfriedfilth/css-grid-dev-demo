@@ -25,6 +25,7 @@
 		// event.target.playVideo();
 	}
 
+	var playedOnce = false;
 	var done = false;
 	function onPlayerStateChange(event) {
 		if (event.data == YT.PlayerState.PLAYING && !done) {
@@ -91,6 +92,14 @@ jQuery(document).ready(function($) {
         offset: 200
       });
 	
+
+	$('footer').mouseenter(function() {
+		console.log('play plz?');
+		if(!playedOnce) {
+			player.playVideo();
+		}
+	});
+
 
 	
 });

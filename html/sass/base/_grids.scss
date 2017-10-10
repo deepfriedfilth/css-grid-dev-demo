@@ -1,0 +1,78 @@
+/* Grid examples */
+
+.old-grid {
+	margin: 2.5em 0;
+	.row {
+		margin: 10px 0;
+		height: 200px;
+		clear: both;
+	}
+	.cell {
+		margin: 0 1%;
+		width: 32.33%;
+		height: 200px;
+
+		&:first-of-type,
+		&:nth-of-type(3n+1) { // left
+			margin-left: 0;
+			width: 32.33% !important;
+		}
+		&:nth-of-type(3n-1) { // middle
+			margin: 0;
+			width: 33.33%;
+		}
+		&:last-of-type,
+		&:nth-of-type(3n) { // right
+			margin-right: 0;
+		}
+	}
+	&::after {
+		content: '';
+		display: table;
+		height: 0;
+		clear: both;
+	}
+	&#float {
+		.cell {
+			display: block;
+			float: left;
+			background: cyan;
+		}
+	}
+	&#inline-block {
+		.cell {
+			display: inline-block;
+			margin-bottom: 5px;
+			background: yellow;
+		}
+	}
+}
+
+
+.grid {
+	display: grid; // inline-grid, subgrid
+	margin: 2.5em 0;
+	width: 100%;
+
+	grid-gap: 10px 1%; // needs 2 values to work in chrome
+
+	&#default {
+		width: 98%; // to account for gutter?
+
+		grid-template-columns: 33.33% 33.33% 33.33%; 
+		grid-template-rows: 200px 200px 200px; // needs # of rows as values or (empty) cells will disappear
+	}
+	&#fr-unit {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 200px 200px 200px;
+	}
+	&#repeat {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 200px);
+	}
+
+	.cell {
+		background: magenta;
+	}
+}
+

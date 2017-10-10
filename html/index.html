@@ -28,19 +28,98 @@
 		</div>
 	</header>
 	<article>
-		<div class="wrapper">
+		<section class="wrapper">
 
-			<p>Grids are cool.</p>
+			<code id="heading-inline">
+				<div id="display-inline-block" data-typed="false" data-typing="false">display<span>:</span> <strong>inline-block</strong><span>;</span></div>
+			</code>
 
-			<p>firefox moar lieks grid rt meow.</p>
+			<div id="inline-block" class="old-grid"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
 
-			<p>chrome&hellip; u mad bro?</p>
+			<code id="heading-float">
+				<div id="display-float" data-typed="false" data-typing="false">display<span>:</span> <strong>float</strong><span>;</span></div>
+			</code>
 
-		</div>
+			<div id="float" class="old-grid">
+				<div class="row">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+			</div>
+
+			<code id="heading-grid">
+				<div id="display-grid" data-typed="false" data-typing="false">display<span>:</span> <strong>grid</strong><span>;</span></div>
+			</code>
+
+			<div id="default" class="grid">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+			</div>
+
+			<div id="fr-unit" class="grid">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+			</div>
+
+			<div id="repeat" class="grid">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+			</div>
+
+		</section>
+		<footer class="wrapper">
+			<div class="cell">
+				<h2>Further Reading</h2>
+				<ul>
+					<li><a href="https://mozilladevelopers.github.io/playground/" target="_blank">CSS Grid PlayGround</a> by Mozilla</li>
+					<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid</a> by CSS Tricks</li>
+					<li><a href="https://tympanus.net/codrops/css_reference/grid/" target="_blank">A Complete Guide to CSS Grid</a> by Codrops</li>
+					<li><a href="https://www.smashingmagazine.com/2017/09/css-grid-gotchas-stumbling-blocks/" target="_blank">CSS Grid Gotchas And Stumbling Blocks</a> by Smashing Magazine</li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank">CSS Grid Inspector: Examine grid layouts</a> by Mozilla</li>
+				</ul>
+			</div>
+			<div class="cell">
+				<iframe id="vidja" type="text/html" width="360" height="220"
+  src="//www.youtube.com/embed/SjNM4eItNRA" frameborder="0"></iframe>
+			</div>
+		</footer>
 	</article>
 
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/typed.js/lib/typed.min.js"></script>
+	<script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
 	<script src="js/main.js"></script>
 	<script id="__bs_script__">//<![CDATA[
 		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.13'><\/script>".replace("HOST", location.hostname));

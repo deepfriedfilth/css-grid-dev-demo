@@ -1,6 +1,5 @@
 	var tag = document.createElement('script');
 
-	// aminated wordplay, yo
 	tag.src = "https://www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -10,8 +9,8 @@
 	var ytLoaded = false;
 	function onYouTubeIframeAPIReady() {
 		player = new YT.Player('vidja', {
-			width: '360',
-			height: '220',
+			width: '400',
+			height: '244',
 			videoId: 'SjNM4eItNRA',
 			origin: window.location,
 			events: {
@@ -42,58 +41,60 @@
 
 jQuery(document).ready(function($) {
 
-	setTimeout(function() {
+	//hljs.initHighlightingOnLoad();
 
+	$('pre code').each(function(i,block){
+      hljs.highlightBlock(block);
+  	});
 
-		// Homegrown... 
-		//$('#displayProp').html('grid');
+	// aminated wordplay, yo
+
+	setTimeout(function() { 
 
 		var typed = new Typed('#displayProp', {
 			strings: ['', 'display<span>:</span> <strong>grid</strong><span>;</span>'],
 			typeSpeed: 50,
-			smartBackspace: true
+			smartBackspace: true,
+			onComplete: function() {
+				$('article').removeClass('hide');
+			}
 		});
 	}, 300);
 
-	var waypoints = $('code').waypoint(function(dir) {
-        if(dir == 'down') {
+	var waypoints = $('code:not(pre code)').waypoint(function(dir) {
+		if(dir == 'down') {
 
-        	var el = $('#'+$(this)[0].element.id);
-        	var eld = '#'+el.find('div').attr('id');
-        	var finalString = $(eld).html();
+			var el = $('#'+$(this)[0].element.id);
+			var eld = '#'+el.find('div').attr('id');
+			var finalString = $(eld).html();
 
-        	// if(!el.hasClass('html')) { // check if <code> has inner <div>
-        		console.log('data-typed='+$(eld).attr('data-typed'));
-	        	if($(eld).attr('data-typed') == 'false' && $(eld).attr('data-typing') == 'false') {// !$(eld).data('typed')
-	        		$(eld).html(''); //reset content
-	        		$(el).addClass('show');
+			console.log('data-typed='+$(eld).attr('data-typed'));
+			if($(eld).attr('data-typed') == 'false' && $(eld).attr('data-typing') == 'false') {// !$(eld).data('typed')
+				$(eld).html(''); //reset content
+				$(el).addClass('show');
 
-		        	var typeThis = new Typed(eld, {
-		        		strings: ['', finalString],
-		        		typeSpeed: 50,
-		        		onStart: function() {
-		        			$(eld).attr('data-typing',true);
-		        			console.log(eld+' has started being typed');
-		        		},
-		        		onComplete: function() {
-		        			console.log(eld+' has been typeded');
-		        			$(eld).attr('data-typing',false);
-		        			$(eld).attr('data-typed',true);
-		        			console.log('data-typed='+$(eld).attr('data-typed'));
-		        			//$(eld).data('typed',true);
-		        		}
-		        	});
-		        } else {
-		        	console.log('already typed '+eld);
-		        }
-	    	// } else {
-	    	// 	console.log('no inner divs, yo')
-	    	// }
-        }
-      }, {
-        offset: 150
-      });
-	
+				var typeThis = new Typed(eld, {
+					strings: ['', finalString],
+					typeSpeed: 50,
+					onStart: function() {
+						$(eld).attr('data-typing',true);
+						console.log(eld+' has started being typed');
+					},
+					onComplete: function() {
+						console.log(eld+' has been typeded');
+						$(eld).attr('data-typing',false);
+						$(eld).attr('data-typed',true);
+						console.log('data-typed='+$(eld).attr('data-typed'));
+						//$(eld).data('typed',true);
+					}
+				});
+			} else {
+				console.log('already typed '+eld);
+			}
+		}
+	}, {
+		offset: 150
+	});
 
 	$('footer').mouseenter(function() {
 		console.log('play plz?');

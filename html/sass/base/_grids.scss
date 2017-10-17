@@ -5,7 +5,7 @@
 	.row {
 		margin: 10px 0;
 		height: 200px;
-		clear: both;
+		@include clearfix;
 	}
 	.cell {
 		margin: 0 1%;
@@ -56,6 +56,16 @@
 
 	grid-gap: 10px 1%; // needs 2 values to work in chrome
 
+	&#grid-50-50 {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto auto;
+		grid-gap: 2% 2%;
+
+		.cell {
+			background: none;
+		}
+	}
+
 	&#default {
 		width: 98%; // to account for gutter?
 
@@ -69,6 +79,10 @@
 	&#repeat {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(3, 200px);
+		grid-template-areas:
+		"top-lf top-cn top-rt"
+		"mid-lf mid-cn mid-rt"
+		"bot-lf bot-cn bot-rt";
 	}
 
 	.cell {

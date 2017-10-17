@@ -38,7 +38,7 @@ gulp.task('styles', function() {
 
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['styles'], function() {
 	browserSync.init({
 		
 		proxy: 'css-grid.dev',

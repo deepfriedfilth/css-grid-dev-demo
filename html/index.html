@@ -9,6 +9,8 @@
 	<meta name="author" content="Nathan Kawatski">
 
 	<link rel="stylesheet" href="style.css">
+	<!-- Syntax highlighting is cool -->
+	<link rel="stylesheet" href="../node_modules/highlight.js/styles/darcula.css">
 
 	<!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -17,7 +19,7 @@
 
 <body>
 
-	<header>
+	<header id="main-header">
 		<div class="wrapper">
 			<dl>
 				<dt><h1>div <span>{</span></h1></dt>
@@ -27,17 +29,56 @@
 			</dl>
 		</div>
 	</header>
-	<article>
+	<article class="hide">
+		<header class="wrapper">
+			<h1>So you want to build a grid&hellip;</h1>
+		</header>
 		<section class="wrapper">
-
+			<p>Pretty simple feat in this modern age, with many options to pull off the very same layout.</p>
+			<div id="grid-50-50" class="grid">
+				<div class="cell">
+					<p>Basic structure</p>
+					<pre><code id="structure-inline" class="html show">&lt;div class="grid"&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+				<div class="cell">
+					<p>Or take a nod from <span class="mono">&lt;table&gt;</span>&hellip;</p>
+					<pre><code id="structure-float" class="html show">&lt;div class="grid"&gt; 
+  &lt;div class="row"&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+    &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+			</div>
 			<code id="heading-inline">
-				<div id="display-inline-block" data-typed="false" data-typing="false">display<span>:</span> <strong>inline-block</strong><span>;</span></div>
+				<div id="display-inline-block" data-typed="false" data-typing="false"><em>.cell</em> <span>{</span> display<span>:</span> <strong>inline-block</strong><span>; }</span></div>
 			</code>
 
 			<div id="inline-block" class="old-grid"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
 
 			<code id="heading-float">
-				<div id="display-float" data-typed="false" data-typing="false">display<span>:</span> <strong>float</strong><span>;</span></div>
+				<div id="display-float" data-typed="false" data-typing="false"><em>.cell</em> <span>{</span> float<span>:</span> <strong>left</strong><span>; }</span></div>
 			</code>
 
 			<div id="float" class="old-grid">
@@ -59,7 +100,11 @@
 			</div>
 
 			<code id="heading-grid">
-				<div id="display-grid" data-typed="false" data-typing="false">display<span>:</span> <strong>grid</strong><span>;</span></div>
+				<div id="display-grid" data-typed="false" data-typing="false"><em>.grid</em> <span>{</span> display<span>:</span> <strong>grid</strong><span>; }</span></div>
+			</code>
+
+			<code id="heading-default-grid" class="css">
+				<div id="css-default-grid" data-typed="false" data-typing="false"><em>.grid</em> <span>{</span><p>grid-template-columns<span>:</span> <strong>33.33% 33.33% 33.33%</strong><span>;</span></p><p>grid-template-rows<span>:</span> <strong>200px 200px 200px</strong><span>;</span></p><span>}</span></div>
 			</code>
 
 			<div id="default" class="grid">
@@ -74,6 +119,10 @@
 				<div class="cell"></div>
 			</div>
 
+			<code id="heading-fr-grid" class="css">
+				<div id="css-fr-grid" data-typed="false" data-typing="false"><em>.grid</em> <span>{</span><p>grid-template-columns<span>:</span> <strong>1fr 1fr 1fr</strong><span>;</span></p><p>grid-template-rows<span>:</span> <strong>200px 200px 200px</strong><span>;</span></p><span>}</span></div>
+			</code>
+
 			<div id="fr-unit" class="grid">
 				<div class="cell"></div>
 				<div class="cell"></div>
@@ -85,6 +134,10 @@
 				<div class="cell"></div>
 				<div class="cell"></div>
 			</div>
+
+			<code id="heading-repeat-grid" class="css">
+				<div id="css-repeat-grid" data-typed="false" data-typing="false"><em>.grid</em> <span>{</span><p>grid-template-columns<span>:</span> <strong>repeat(3, 1fr)</strong><span>;</span></p><p>grid-template-rows<span>:</span> <strong>repeat(3, 200px)</strong><span>;</span></p><span>}</span></div>
+			</code>
 
 			<div id="repeat" class="grid">
 				<div class="cell"></div>
@@ -107,7 +160,7 @@
 					<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid<i class="material-icons">launch</i></a> by CSS Tricks</li>
 					<li><a href="https://tympanus.net/codrops/css_reference/grid/" target="_blank">A Complete Guide to CSS Grid<i class="material-icons">launch</i></a> by Codrops</li>
 					<li><a href="https://www.smashingmagazine.com/2017/09/css-grid-gotchas-stumbling-blocks/" target="_blank">CSS Grid Gotchas And Stumbling Blocks<i class="material-icons">launch</i></a> by Smashing Magazine</li>
-					<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank">CSS Grid Inspector: Examine grid layouts<i class="material-icons">launch</i></a> by Mozilla</li>
+					<li><a href="https://www.smashingmagazine.com/2017/10/naming-things-css-grid-layout/" target="_blank">Naming Things In CSS Grid Layout<i class="material-icons">launch</i></a> by Smashing Magazine</li>
 				</ul>
 			</div>
 			<div class="cell">
@@ -119,6 +172,9 @@
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/typed.js/lib/typed.min.js"></script>
 	<script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="js/highlight.pack.js"></script>
+	<!-- from https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/themes/codropstheme03/js/highlight.pack.js?ver=85 works.. but not official version? -->
+	<!-- <script src="../node_modules/highlight.js/lib/highlight.js"></script> -->
 	<script src="js/main.js"></script>
 	<script id="__bs_script__">//<![CDATA[
 		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.13'><\/script>".replace("HOST", location.hostname));

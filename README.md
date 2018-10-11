@@ -3,7 +3,7 @@
 
 
 ```
-git clone https://deepfriedfilth@bitbucket.org/deepfriedfilth/css-dev-demo.git
+git clone https://deepfriedfilth@bitbucket.org/deepfriedfilth/css-grid-dev-demo.git
 ```
 
 ```

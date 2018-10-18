@@ -15,7 +15,7 @@ var supported = [
     'android 4'
 ];
 
-gulp.task('styles', function() {
+gulp.task('styles', function(done) {
 	/* Sass it up, pack it up */
 	gulp.src('sass/**/*.scss')
 	.pipe(sourcemaps.init())
@@ -35,16 +35,20 @@ gulp.task('styles', function() {
 		}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./'));*/
-
+	done();
 });
 
-gulp.task('default', ['styles'], function() {
+
+
+gulp.task('default', gulp.parallel('styles', function(done) {
 	browserSync.init({
 		
 		proxy: 'css-grid.dev',
 		browser: 'google chrome'
 	});
-	gulp.watch('sass/**/*.scss',['styles']);
+	gulp.watch('sass/**/*.scss',gulp.parallel('styles', reload));
 	gulp.watch('**/*.html',reload);
 	gulp.watch('js/**/*.js',reload);
-});
+
+	done();
+}));
